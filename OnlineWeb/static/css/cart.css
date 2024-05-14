@@ -1,0 +1,194 @@
+/* .cart_row{
+    margin: 70px;
+    display: flex;
+}
+.main_div{
+    display: flex;
+}
+
+.cart_title{
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+
+}
+
+.cart_custom_table{
+    min-width: 400px;
+    font-size: 14px;
+}
+
+.cart_custom_th{
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    background-color: burlywood !important;
+} */
+
+
+/* additional CSS for Dajin Cart */
+
+  
+  /* CSS for main container */
+
+
+  .cart-container {
+    display:flex;
+    
+  }
+  
+  .cart-left {
+    width: 60%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+  }
+  
+  .cart_card {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+  }
+  
+  .card-content {
+    flex: 1;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-description {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .card-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .card-price {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .cart-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  /* .cart-actions input[type="number"] {
+    border: none;
+    border-radius: 0;
+    padding: 5px;
+    width: 50px;
+  } */
+  
+  /* .cart-actions .add-btn,
+  .cart-actions .less-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  } */
+  
+  /* .cart-actions .add-btn:hover,
+  .cart-actions .less-btn:hover {
+    background-color: #0056b3;
+  }
+   */
+  /* .cart-actions button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+  } */
+  
+  /* .cart-actions button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  .cart-actions a button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+  } */
+  
+  /* .cart-actions a button:hover {
+    background-color: #ff3333;
+  } */
+  
+  .cart-right {
+    float: right;
+    width: 30%; /* Adjust according to your layout */
+  }
+  
+  .order-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .order-form h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  
+  .order-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .order-form input[type="text"],
+  .order-form input[type="email"],
+  .order-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .product-info {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    list-style-type: none; /* Display product info as a list */
+  }
+  
+  .product-info li {
+    margin-bottom: 5px;
+  }
+  
+  /* .order-form button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    float: center; /* Move the place order button to the left */
+     /* Clear floats to ensure proper positioning */
+    

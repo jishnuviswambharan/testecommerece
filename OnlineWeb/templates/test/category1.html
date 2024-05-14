@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-commerce Website</title>
+    <style>
+        /* Styles for search box */
+        .search-container {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-container input[type="text"] {
+            width: calc(70% - 10px); /* Adjusted width to accommodate gap */
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            margin-bottom: 10px; /* Add a margin between input and button */
+        }
+
+        .search-container input[type="text"]:focus {
+            border-color: #007bff;
+        }
+
+        .search-container button {
+            width: 25%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+.cart-icon {
+            font-size: 24px;
+            margin-top: 0px;
+            padding-top:3px;
+        }
+    </style>
+
+    <!-- Load static files -->
+    {% load static %}
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index_styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+<!-- Banner -->
+<div class="banner">
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'category_detail' slug='electronic' %}">Products</a></li>
+            <li><a href="#">About Us</a></li>
+<!--            <li><a href="{% url 'view_cart' %}">Cart</a></li>-->
+            <li><a href="{% url 'view_cart' %}"> <i class="fas fa-shopping-cart cart-icon"></i> ({{ total_items_in_cart }})</a></li>
+            <!-- Add more navigation links as needed -->
+        </ul>
+    </div>
+    <!-- Navbar end-->
+    <!-- Banner Content -->
+    <div class="content">
+            <div class="search-container">
+            <form action="{% url 'search' %}" method="GET">
+                <input type="text" name="query" placeholder="Search..."><br>
+<!--                <input type="submit" value="Search">-->
+            </form>
+        </div>
+        <h1 class="banner_title">Get Start <br>Your Favorite Shopping</h1>
+    </div>
+    <!-- Banner Content end-->
+</div>
+<!-- Banner end-->
+
+<!-- Product Heading Section -->
+<div class="product-title">
+    <h2 style="text-transform: uppercase;">Product Section</h2>
+</div>
+<!-- Product Heading Section end-->
+<!-- Products start-->
+        <div class="products">
+            <!-- Product Cards start -->
+            <div class="card-container">
+                {% for category in categories %}
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300x200" alt="Placeholder Image">
+                        <div class="card-content">
+                            <h2 class="card-title">{{ category.name }}</h2>
+                        </div>
+                        <button onclick="location.href='#'" class="product-button">View More</button>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Product Cards start end -->
+        </div>
+<!-- Product end -->
+<!-- Product Section -->
+
+<!-- Product Section end-->
+
+<!-- Footer -->
+<div class="footer">
+    This is the footer content.
+</div>
+<!-- Footer end-->
+
+</body>
+</html>

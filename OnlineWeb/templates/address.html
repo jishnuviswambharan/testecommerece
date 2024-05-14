@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container"><br>
+    <h2><u>Delivery Information</u></h2><br>
+    <form>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea class="form-control" id="address" rows="3" placeholder="Enter your address" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="Mobile">Mobile Number :</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your Mob Number" required>
+        </div>
+        <div class="form-group">
+            <label for="Landmark">Landmark :</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your Landmark" required>
+        </div>
+        <a href="{% url 'OnlineApp:allProdCat' %}" class="btn-head">Place Your Order</a>
+</div>
+<br><br>
+{% endblock %}

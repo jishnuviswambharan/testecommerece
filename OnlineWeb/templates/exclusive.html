@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="ex_offer">
+    <div class="ex_smallcontainer">
+        <div class="row">
+            <div class="col2 ex">
+                <img src="{% static 'img/exclusive/exclusive.png' %}" class="offerimg">
+            </div>
+            <div class="col2 ex">
+                <p class="offertitle">EXCLUSIVELY AVAILABLE !!!</p>
+                <h1>Mi Smart Band 4</h1>
+                <small>Mi Smart Band 4 0.94-inch AMOLED Color Display, 20 Days Battery, color AMOLED full touch display</small>
+                <a href="{% url 'OnlineApp:allProdCat' %}" class="btn-head" style="justify-content: center;">Buy Now &#8594;</a>
+            </div>
+            <!-- <div>
+                <a href="" class="btn-head" >Buy Now &#8594;</a>
+            </div> -->
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

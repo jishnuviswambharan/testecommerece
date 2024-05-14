@@ -1,0 +1,100 @@
+{% load static %}
+<!-- <style>
+    .RitSec{position: fixed;
+    width: 100%;
+    animation-name: fadeInDown;
+    animation-duration: .8s;
+    animation-fill-mode: both;
+    z-index: 9000;
+    top: 0px;
+    background: #00aa95;
+    box-shadow: 0px 0px 25px rgba(0,0,0,.1);
+    }
+</style> -->
+<nav>
+    <!-- <div class="RitSec">
+        <div class="QckActn">
+            <div class="ItM">
+                <button type="button" aria-label="language" >International (English)</button>
+            </div>
+            <div class="ItM">
+                <a href="index.php" title="login" aria-label="login">Login</a>
+            </div>
+        </div>
+        <div class="MenuIcon">
+            <button type="button" aria-label="MenuButton" class="btn" data-bs-toggle="modal"
+                data-bs-target="#HeaderPOP">
+                <div class="IconWrp">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div> -->
+<div class="navbar navbar-expand-lg bg-body-tertiary">
+  
+    <div class="container-fluid">
+        <a href="{% url 'OnlineApp:allProdCat' %}"><img src="{% static 'img\logo.png' %}" alt="logoimage" width="125px"></a>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-5 mb-lg-2">
+          <li class="navitem-">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          
+          <li class="nav-item dropdown  {% if 'OnlineApp in request.path' %} active {% endif %}" >
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Shop
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'OnlineApp:allProdCat' %}">All Products</a></li>
+              <li><a class="dropdown-item" href="{%url 'CartApp:cartdetail' %}">Your Cart</a></li>
+                {% for cat in links %}
+              <li><a class="dropdown-item" href="{{cat.get_url}}">{{cat.name}}</a></li>
+                {% endfor %}
+
+            </ul>
+          </li>
+          {% if item_count %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'CartApp:cartdetail' %}"><i class="fa-solid fa-cart-shopping"></i>( {{item_count}} )</a>
+          </li>
+          {% endif %}
+          <!-- {% if user.is_authenticated %}
+          <img src="{ user.userprofile.image_url }" alt="">
+          <li class="nav-link">{{ user.username }}</li>
+          
+          <li><a href="credentials/logout" class="nav-link">logout</a></li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'loginapp:login' %}">LogIn</a>
+          </li>
+          {% endif %} -->
+          {% if user.is_authenticated %}
+    {% if user.userprofile.image_url %}
+        <img class="user_image" src="{{ user.userprofile.image_url }}" alt="" >
+    {% else %}
+        <!-- If user image is not available, use a default image -->
+        <img class= "nav-link" style="width: 40px;height: 40px;" src="{% static 'img/userimage/user.png' %}" alt="">
+    {% endif %}
+    <li class="nav-link">{{ user.username }}</li>
+    <li><a href="{% url 'loginapp:logout' %}" class="nav-link">Logout</a></li>
+{% else %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'loginapp:login' %}">LogIn</a>
+    </li>
+{% endif %}
+        </ul>
+        <form class="d-flex" role="search" action="{% url 'SearchApp:sreachresults' %}" method="GET">
+          {% csrf_token %}
+          <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit"><i class="fa-brands fa-searchengin"></i></button>
+        </form>
+      </div>
+    </div>
+</div>
+<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,224L14.1,224C28.2,224,56,224,85,197.3C112.9,171,141,117,169,80C197.6,43,226,21,254,21.3C282.4,21,311,43,339,80C367.1,117,395,171,424,213.3C451.8,256,480,288,508,256C536.5,224,565,128,593,101.3C621.2,75,649,117,678,133.3C705.9,149,734,139,762,117.3C790.6,96,819,64,847,64C875.3,64,904,96,932,96C960,96,988,64,1016,96C1044.7,128,1073,224,1101,256C1129.4,288,1158,256,1186,229.3C1214.1,203,1242,181,1271,186.7C1298.8,192,1327,224,1355,240C1383.5,256,1412,256,1426,256L1440,256L1440,0L1425.9,0C1411.8,0,1384,0,1355,0C1327.1,0,1299,0,1271,0C1242.4,0,1214,0,1186,0C1157.6,0,1129,0,1101,0C1072.9,0,1045,0,1016,0C988.2,0,960,0,932,0C903.5,0,875,0,847,0C818.8,0,791,0,762,0C734.1,0,706,0,678,0C649.4,0,621,0,593,0C564.7,0,536,0,508,0C480,0,452,0,424,0C395.3,0,367,0,339,0C310.6,0,282,0,254,0C225.9,0,198,0,169,0C141.2,0,113,0,85,0C56.5,0,28,0,14,0L0,0Z"></path></svg> -->
+</div>
+
